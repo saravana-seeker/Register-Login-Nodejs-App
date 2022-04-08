@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>register Page</title>
+</head>
+<body>
+    <!--alert page -->
+
+    <!--alert box-->
+    <section class="login" id="register">
+        <div class="container">
+          <div class="login-container">
+           <form id="reg">
+             <div class="form-group">
+               <div class="h1 text-center">
+                 <i class="bi bi-person"></i>
+                </div>
+               <h1 class="login-header">Regis<span>Ter</span></h1>
+               <h5 class="wrong-info bg-warning " id="wrong-info"> 
+        </h5>
+               <label for="name">Name</label>
+               <input type="text" class="form-control"id="name"  placeholder="Name" required>
+               <label for="email">Email address</label>
+               <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email">
+               <small id="emailHelp" class="form-text text-muted pt-2">We'll never share your email with anyone else.</small>
+             </div>
+             <div class="form-group">
+               <label for="password">Password</label>
+               <input type="password" class="form-control" id="password" placeholder="Password">
+             </div>
+             <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+             <p class="text-white p-1">already have an account ..? return to <a href="/login">Login</a></p>
+           </form>
+          </div>
+        </div>
+      </section>
+        <!--register end-->
+
+    <script>
+        const form = document.getElementById('reg')
+        form.addEventListener('submit',registerUser)
+        async function registerUser(){
+            //prevent the page loads
+            event.preventDefault()
+            const name = document.getElementById('name').value
+            const username = document.getElementById('username').value
+            const password = document.getElementById('password').value
+
+            const result = await fetch('/api/register',{
+                method:'POST',
+                headers:{
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify({
+                    name,
+                    username,
+                    password
+                })
+            }).then((res) => {
+                if(res.status==409){
+                  document.getElementById("wrong-info").innerHTML = "User exist";
+                  document.getElementById("wrong-info").style.padding = "10px 15px";
+
+                }
+                else if(res.status==203){
+                  document.getElementById("wrong-info").innerHTML = "Password must be above 5 character";
+                  document.getElementById("wrong-info").style.padding = "10px 15px";
+                    
+                }
+
+                else  if(res.status==204){
+                  document.getElementById("wrong-info").innerHTML = "Invalid Username";
+                  document.getElementById("wrong-info").style.padding = "10px 15px";
+                    
+
+                }
+                else if (res.status == 403) {
+                  document.getElementById("wrong-info").innerHTML = "Invalid Username or Password";
+                  document.getElementById("wrong-info").style.padding = "10px 15px";
+                }
+                else if (res.status==201){
+                  document.location.href="/login"
+                }
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* navbar  */
+
+
+.navbar-brand img {
+    padding-left: 8px;
+    height: 40px;
+    width: 100;
+}
+
+.navbar-brand span {
+    font-size: 20px;
+    bottom: 0 !important;
+
+}
+.navbar ul li a {
+   margin: 5px 10px;
+   border-radius: 5px;
+   padding: 5px 10px;
+} 
+
+.navbar ul li a:hover{
+    margin: 5px 10px;
+    background-color: white;
+    color: black !important;
+}
+
+
+/* home section start */
+
+.home-container{
+    padding: 20px;
+    width: 100;
+    min-height: 50vh;
+    padding-bottom: 20px;
+}
+
+.home-container .home-header {
+    letter-spacing: 1px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.home-container .home-para {
+    text-align: starts;
+}
+
+.home-container .home-img img{
+   border-radius: 10px;
+   width: 50;
+
+}
+
+
+/* 404  */
+
+.page-error .container .page-error-img img{
+    width: 100;
+    height: 400px;
+    
+
+    
+}
+/* about  */
+
+.about {
+    width: 100;
+    min-height: 100vh;
+}
+
+#about  {
+    background: url("https://img.freepik.com/free-vector/network-mesh-wire-digital-technology-background_1017-27428.jpg?t=st=1649266763~exp=1649267363~hmac=e8a936aa1952ba0d762ae1875a5f5bfc4f7871351805aaf3f418b114b425c948&w=1060");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+#about .container {
+    border: 5px white;
+}
+
+#about .about-header h1 {
+    padding-left: 10px;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#about .about-header p {
+    padding-left: 10px;
+}
+
+
+#about .about-header span {
+    color: red;
+}
+
+#about .about-header .about-para {
+    padding: 10px;
+
+}
+
+
+/* login page  */
+
+
+.login {
+
+    width: 100;
+    min-height: 100vh;
+    background: #555;
+    padding-top: 50px;
+}
+
+.login .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    min-height: 500px;
+    border-radius: 20px;
+    background-color: #000232;
+    box-shadow: 0px 14px 28px rgba(0,0,0,0.3),
+    0px 10px 28px rgba(0,0,0,0.3);
+    
+
+    
+    
+}
+
+.login .container .login-container .form-group .h1 {
+    color: white !important;
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.login .container .login-container .form-group label {
+    color: white;
+    padding: 10px 0;
+}
+
+.login .container .login-container .form-group h1 {   
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+
+.login .container .login-container .form-group span {
+    color: #FBD1B7;
+}
+
+.login .container .login-container .form-group input {
+    padding: 5px 25px;
+}
+
+
+.login .container .login-container .form-group button {
+   margin: 10px 0px !important;
+   color: white;
+   margin-bottom: 10px;
+}
+
+
+/* dash-board */
+
+.account-details table {
+    border-radius: 10px;
+}
+
+

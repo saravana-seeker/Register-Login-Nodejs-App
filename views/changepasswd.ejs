@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+</head>
+<h1>Change Password</h1>
+<body>
+    <form id="update">
+        <input type="password" id="password" placeholder="Password">
+        <input type="submit" >
+
+    </form>
+    <script>
+        const form = document.getElementById('update')
+        form.addEventListener('submit',changePasswd)
+        async function changePasswd(){
+            //prevent the page loads
+            event.preventDefault()
+            const password = document.getElementById('password').value
+            const data = JSON.stringify({password})
+            
+            const response = await fetch ('/api/changepasswd',{
+                method:'POST',
+                headers:{
+                    'Content-type':'application/json'
+                },
+                body:data
+            }).then(res => {
+            if (res.status == 200) {
+                document.location.href="/profile";
+
+                }
+        })
+            .catch(error => {
+
+            })
+
+             }
+             
+    </script>
+</body>
+</html>
